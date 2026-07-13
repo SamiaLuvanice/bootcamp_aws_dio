@@ -1,62 +1,74 @@
-# O que é o AWS CloudFormation
+# Introdução ao AWS CloudFormation
 
-O **AWS CloudFormation** é um serviço da Amazon Web Services (AWS) que permite criar e gerenciar infraestrutura na nuvem utilizando código, em vez de configurar recursos manualmente pelo console da AWS.
+Este documento apresenta, de forma breve e prática, o **AWS CloudFormation**, um serviço da AWS usado para criar e gerenciar recursos de infraestrutura como código (IaC).
 
-## Como funciona
+---
 
-No CloudFormation, a infraestrutura é definida em um **template**, escrito em **YAML** ou **JSON**. Esse template descreve todos os recursos que devem ser criados, como:
+## O que é o AWS CloudFormation
 
-- Instâncias EC2
-- Buckets S3
-- Bancos de dados RDS
-- Redes VPC
-- Funções IAM
-- Load Balancers
+O AWS CloudFormation permite descrever recursos da AWS em arquivos chamados **templates**, escritos em JSON ou YAML. Com isso, você consegue provisionar ambientes de forma padronizada, repetível e automatizada.
 
-Após enviar o template, o CloudFormation cria e configura automaticamente todos os recursos na ordem correta.
+Em vez de criar recursos manualmente no console, você define tudo como código e o CloudFormation cuida da criação, atualização e remoção da infraestrutura.
 
-## Principais vantagens
+---
 
-- **Infraestrutura como Código (IaC):** permite versionar a infraestrutura junto com o código da aplicação.
-- **Automação:** reduz tarefas manuais e erros de configuração.
-- **Reprodutibilidade:** facilita a criação de ambientes idênticos (desenvolvimento, homologação e produção).
-- **Gerenciamento centralizado:** atualiza e remove recursos de forma controlada.
+## Para que serve
 
-## Conceitos importantes
+- Automatizar a criação de ambientes na AWS.
+- Garantir padronização entre desenvolvimento, teste e produção.
+- Versionar a infraestrutura junto com o código da aplicação.
+- Facilitar a reprodução e o controle de mudanças.
 
-### Template
-Arquivo que define a infraestrutura.
+---
 
-### Stack
-Conjunto de recursos criados a partir de um template.
+## Conceitos básicos
 
-### Change Set
-Permite visualizar quais alterações serão realizadas antes de atualizar uma stack.
+- **Template:** arquivo que descreve os recursos desejados.
+- **Stack:** conjunto de recursos criado a partir de um template.
+- **Change Set:** prévia das alterações que serão aplicadas em uma stack.
+- **Parameters:** valores que podem ser informados ao reutilizar o template.
+- **Outputs:** informações retornadas após a criação da stack, como endpoints e IDs.
 
-## Exemplo simples de template
+---
 
-```yaml
-AWSTemplateFormatVersion: '2010-09-09'
+## Exemplo simples
 
-Resources:
-  MeuBucket:
-    Type: AWS::S3::Bucket
-    Properties:
-      BucketName: meu-bucket-exemplo
-```
+Um template pode criar recursos como:
 
-Este exemplo cria um bucket do Amazon S3 chamado `meu-bucket-exemplo`.
+- uma instância EC2;
+- um bucket S3;
+- uma role IAM;
+- uma fila SQS.
 
-## Quando utilizar
+Assim, toda a infraestrutura pode ser recriada com consistência em poucos comandos.
 
-O AWS CloudFormation é recomendado quando se deseja:
+---
 
-- Automatizar a criação de infraestrutura.
-- Padronizar ambientes.
-- Controlar mudanças utilizando versionamento.
-- Facilitar implantações repetitivas.
-- Implementar práticas de DevOps e Infraestrutura como Código (IaC).
+## Vantagens
 
-## Resumo
+- Reduz erros de configuração manual.
+- Aumenta a reprodutibilidade dos ambientes.
+- Facilita auditoria e controle de versão.
+- Ajuda a aplicar boas práticas de infraestrutura como código.
 
-O AWS CloudFormation é uma ferramenta de **Infraestrutura como Código (IaC)** que permite definir recursos da AWS em arquivos de configuração. Com isso, é possível criar, atualizar e excluir ambientes de forma automatizada, consistente e segura, tornando o gerenciamento da infraestrutura mais eficiente.
+---
+
+## Quando usar
+
+Use CloudFormation quando quiser provisionar recursos da AWS de forma automatizada, organizada e rastreável, especialmente em projetos que exigem ambientes consistentes e bem documentados.
+
+---
+
+## Links úteis
+
+- Documentação oficial: https://docs.aws.amazon.com/cloudformation/
+- Guia de templates: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html
+
+---
+
+## Conclusão
+
+O AWS CloudFormation é uma ferramenta essencial para quem quer tratar infraestrutura como código na AWS. Ele simplifica a criação e a manutenção de ambientes, deixando o processo mais seguro, escalável e padronizado.
+
+![alt text](image.png)
+![alt text](image-1.png)
